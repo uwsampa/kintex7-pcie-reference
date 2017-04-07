@@ -18,6 +18,11 @@ connect_bd_intf_net [get_bd_intf_pins inverter_0/M_AXIS] [get_bd_intf_pins xdma_
 connect_bd_net [get_bd_pins inverter_0/CLK] [get_bd_pins xdma_0/axi_aclk]
 connect_bd_net [get_bd_pins inverter_0/RESET_N] [get_bd_pins xdma_0/axi_aresetn]
 
+# you need to tie off these tkeep wires to make sure the axi interface interprets the bytes as valid
+connect_bd_net [get_bd_pins xdma_0/m_axis_h2c_tkeep_0] [get_bd_pins xdma_0/s_axis_c2h_tkeep_0]
+
+
+
 make_wrapper -files [get_files k7-board/k7-board.srcs/sources_1/bd/k7_board/k7_board.bd] -top
 add_files -norecurse k7-board/k7-board.srcs/sources_1/bd/k7_board/hdl/k7_board_wrapper.v
 set_property top k7_board_wrapper [current_fileset]
