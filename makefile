@@ -23,11 +23,11 @@ program:
 	vivado -mode batch -source tcl/program_board.tcl
 
 .PHONY: remake-board
-remake-board: hardware/component.xml
+remake-board: hardware
 	vivado -mode batch -source tcl/build_hw.tcl
 
-hardware/component.xml:
-	$(MAKE) -C hardware component.xml
+hardware:
+	$(MAKE) -C hardware component
 
 .PHONY: clean
 clean: 
