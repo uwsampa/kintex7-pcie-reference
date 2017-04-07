@@ -1,5 +1,13 @@
-Kintex 7 PCIe Driver Reference
+Kintex 7 PCIe Reference Design
 ------------------------------
+
+(TODO better description)
+
+1. Build the driver in `software/driver` and copy the provided driver rules from the etc directory 
+	to the `/etc/` directory on your system with `cp ../etc/udev/rules.d/* /etc/udev/rules.d/`
+2. Build the hardware with `make remake-board` and program the board over jtag with `make program`
+3. Load the driver after reboot with `sudo ./load_driver.sh` (in the software folder)
+4. Test FPGA design with `python test_harness.py` (in the software folder)
 
 A trimmed down verison of [this reference
 design](https://www.xilinx.com/member/forms/download/design-license.html?cid=379014&filename=rdf0282-k7-connectivity-trd-2014-3.zip):
