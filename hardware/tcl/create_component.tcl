@@ -12,9 +12,9 @@ ipx::package_project \
   -library sampa \
   -taxonomy /UserIP
 
-set_property name jump_top [ipx::current_core]
-set_property display_name jump_top_v1_0 [ipx::current_core]
-set_property description jump_top_v1_0 [ipx::current_core]
+set_property name inverter [ipx::current_core]
+set_property display_name inverter_v1_0 [ipx::current_core]
+set_property description inverter_v1_0 [ipx::current_core]
 
 ipx::create_xgui_files [ipx::current_core]
 ipx::update_checksums [ipx::current_core]
