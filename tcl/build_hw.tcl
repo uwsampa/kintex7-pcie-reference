@@ -8,8 +8,8 @@ create_bd_design "k7_board"
 create_bd_cell -type ip -vlnv xilinx.com:ip:xdma:3.0 xdma_0
 
 # configure the PCI-dma IP
-set_property -dict [list CONFIG.pl_link_cap_max_link_width {X8} CONFIG.axi_data_width {64_bit} CONFIG.xdma_axi_intf_mm {AXI_Stream} CONFIG.axisten_freq {250} CONFIG.pf0_device_id {7018}] [get_bd_cells xdma_0]
 apply_bd_automation -rule xilinx.com:bd_rule:xdma -config {lane_width "X8" link_speed "2.5 GT/s (PCIe Gen 1)" axi_clk "Maximum Clock Frequency" axi_intf "AXI Stream" bar_size "Disable" h2c "1" c2h "1" }  [get_bd_cells xdma_0]
+set_property -dict [list CONFIG.pl_link_cap_max_link_width {X8} CONFIG.axi_data_width {64_bit} CONFIG.xdma_axi_intf_mm {AXI_Stream} CONFIG.axisten_freq {250} CONFIG.pf0_device_id {7018}] [get_bd_cells xdma_0]
 
 # add the hardware block and connect the wires
 create_bd_cell -type ip -vlnv cs.uw.edu:sampa:inverter:1.0 inverter_0
